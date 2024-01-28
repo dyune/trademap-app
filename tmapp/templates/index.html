@@ -40,7 +40,7 @@
             font-family: 'Lato', sans-serif; /* Change font-family to Lato Bold */
             font-weight: bold; /* Ensure bold weight */
         }
-        
+
         .top-bar {
             background-color: #586f7cff;
             color: #fff;
@@ -65,7 +65,14 @@
         }
 
         .logo {
-            width: 50px; /* Adjust the size of the logo */
+            width: 65px; /* Adjust the size of the logo */
+            height: 65px; /* Set the height to maintain aspect ratio */
+            background-image: url('../static/Logo1.png'); /* Replace 'path_to_your_image.jpg' with the path to your image */
+            background-size: cover; /* Cover the entire area of the .logo */
+            background-position: center; /* Center the image within the .logo */
+            position: absolute; /* Position the logo absolutely */
+            top: 10px; /* Adjust the top position */
+            left: 15px; /* Adjust the left position */
         }
 
         .container {
@@ -132,8 +139,11 @@
 </head>
 <body>
 
-   <!-- Top Bar -->
+  <!-- Top Bar -->
 <div class="top-bar">
+    <!-- Logo -->
+    <div class="logo"></div>
+
     <div class="top-buttons">
         <h1><a href="{% url 'home' %}">TradeMap    |</a></h1>
     </div>
@@ -174,7 +184,8 @@
         
             <div class="post-box">
                 <div class="clear-box" onclick="toggleMoreInfo(this)">
-                    <h2>{{ post.user }}</h2> 
+                    <h2 style="text-decoration: underline;">{{ post.user }}</h2> 
+                    <h3>{{ post.title }}</h3>
                     <p>Description: {{ post.description }}</p>
                     <p>Price Offer: {{ post.cost_offer }} $</p>
                     <p>Profession Type: {{ post.profession_type }}</p>
