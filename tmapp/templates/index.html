@@ -31,34 +31,41 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', sans-serif; /* Change font-family to Lato Bold */
+            font-weight: bold; /* Ensure bold weight */
         }
+        
+        /* For the elements where you want specifically Lato Bold, you can override */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif; /* Change font-family to Lato Bold */
+            font-weight: bold; /* Ensure bold weight */
+        }
+        
         .top-bar {
-            background-color: #333;
+            background-color: #586f7cff;
             color: #fff;
             padding: 10px;
-            text-align: center;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the content horizontally */
             align-items: center;
         }
-
-        .logo {
-            width: 50px; /* Adjust the size of the logo */
-        }
-
+    
         .top-buttons {
             display: flex;
             gap: 10px;
         }
+    
+        .top-buttons a {
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        .top-buttons h1 {
+            margin: -4.5%; /* Remove default margin */
+        }
 
-        .top-buttons button {
-            background-color: #ddd;
-            color: #333;
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .logo {
+            width: 50px; /* Adjust the size of the logo */
         }
 
         .container {
@@ -68,7 +75,7 @@
 
         .left-boxes {
             flex: 1;
-            background-color: #f0f0f0;
+            background-color: #f4f4f9ff;
             padding: 15px;
             box-sizing: border-box;
         }
@@ -77,12 +84,13 @@
             position: relative;
             display: inline-block;
             padding: 10px;
-            background-color: #ddd;
+            background-color: #586f7cff;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #fff; /* Set text color to white */
         }
-
+    
         .dropdown-content {
             display: none;
             position: absolute;
@@ -93,11 +101,11 @@
             padding: 10px;
             min-width: 150px;
         }
-
+    
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
+    
         .dropdown-item {
             padding: 8px;
             text-decoration: none;
@@ -113,21 +121,24 @@
 
         .right-box {
             width: 30%;
-            background-color: #ddd;
+            background-color: #b8dbd9ff;
             padding: 15px;
             box-sizing: border-box;
             overflow-y: auto; /* Add scrollbar for overflow */
             max-height: 100%; /* Set maximum height */
         }
+        
     </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
+   <!-- Top Bar -->
 <div class="top-bar">
     <div class="top-buttons">
-        <h1><a href={% url 'home' %}>TradeMap<a/></h1>
-        <h2><a href = {% url 'input' %}>Make A Post<a/></h2>
+        <h1><a href="{% url 'home' %}">TradeMap    |</a></h1>
+    </div>
+    <div class="top-buttons">
+        <h2><a href="{% url 'input' %}">make a post</a></h2>
     </div>
 </div>
 
@@ -165,8 +176,8 @@
                 <div class="clear-box" onclick="toggleMoreInfo(this)">
                     <h2>{{ post.user }}</h2> 
                     <p>Description: {{ post.description }}</p>
-                    <p>Price Offer: {{ post.cost_offer }}</p>
-                    <p>Service Required: {{ post.profession_type }}</p>
+                    <p>Price Offer: {{ post.cost_offer }} $</p>
+                    <p>Profession Type: {{ post.profession_type }}</p>
                     
                     <!-- Additional information (hidden by default) -->
                     <div class="more-info">

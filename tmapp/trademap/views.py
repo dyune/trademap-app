@@ -23,7 +23,7 @@ def input_form(request):
         form = JobForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('output_values')  # Redirect to output view
+            return redirect('home')  # Redirect to output view
     else:
         form = JobForm()
     return render(request, 'input_form.html', {'form': form})
