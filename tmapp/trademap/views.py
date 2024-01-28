@@ -35,10 +35,9 @@ def output_values(request):  # Test function to output all objects from the data
 
 
 def filter(request, type):
-    typeset = str(type)
-    filter_output = JobPostings.objects.filter(profession_type = type)
-    return render(request, 'index.html', {
-        "filtered_output":filter_output
+    return render(request, 'index_filter.html', {
+        'postings': values,
+        "typefiltered":type
     })
 
 

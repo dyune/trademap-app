@@ -142,8 +142,8 @@
                     <a href="{% url 'filter' 'Plumber' %}" class="dropdown-item">Plumber</a>
                     <a href="{% url 'filter' 'Carpenter' %}" class="dropdown-item">Carpenter</a>
                     <a href="{% url 'filter' 'Electrician' %}" class="dropdown-item">Electrician</a>
-                    <a href="{% url 'filter' 'Landscaping' %}" class="dropdown-item">Landscaping</a>
-                    <a href="{% url 'filter' 'Painting or Decorating' %}" class="dropdown-item">Painting or Decorating</a>
+                    <a href="{% url 'filter' 'Landscaper' %}" class="dropdown-item">Landscaping</a>
+                    <a href="{% url 'filter' 'Painter or Decorator' %}" class="dropdown-item">Painting or Decorating</a>
                     <a href="{% url 'filter' 'Other' %}" class="dropdown-item">Other</a>
                     <a href="{% url 'home' %}" class="dropdown-item">Reset</a>
                 </div>
@@ -160,7 +160,7 @@
             {{ post.location|json_script:'address' }}
         </div>
         {% for post in postings %}
-        
+        {% if post.profession_type == typefiltered %}
             <div class="post-box">
                 <div class="clear-box" onclick="toggleMoreInfo(this)">
                     <h2>{{ post.user }}</h2> 
@@ -176,7 +176,9 @@
                     </div>
                 </div>
             </div>
+        {% endif %}
         {% endfor %}
+
     </div>
     <!-- Google Maps API Script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZq1IpdrPsV93sfIgqX67FgBoRBAmYPws&callback=initMap" async defer></script>

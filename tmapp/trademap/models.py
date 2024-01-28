@@ -20,7 +20,7 @@ class JobPostings(Account):
         ]
     user = models.CharField(max_length=40)
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=40)
+    description = models.CharField(max_length=100)
     cost_offer = models.IntegerField()
     profession_type = models.CharField(max_length=40, choices= jobs)
     contact = models.CharField(max_length = 15, default = '')
