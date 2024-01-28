@@ -12,6 +12,7 @@ values = JobPostings.objects.all()
 
 def index(request):
     len(values)
+    
     return render(request, 'index.html', {
         'postings': values
     })
@@ -31,3 +32,14 @@ def input_form(request):
 def output_values(request):  # Test function to output all objects from the database
     len(values)
     return render(request, 'output.html', {'values': values})
+
+
+def filter(request, type):
+    typeset = str(type)
+    filter_output = JobPostings.objects.filter(profession_type = type)
+    return render(request, 'index.html', {
+        "filtered_output":filter_output
+    })
+
+
+

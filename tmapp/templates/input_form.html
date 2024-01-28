@@ -1,16 +1,133 @@
-<!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Form</title>
+    <title>Top Bar with Boxes and Google Maps</title>
+    <style>
+        .clear-box {
+            border: 2px solid #ccc;
+            border-radius: 10px; /* Adjust the value for roundness */
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff; /* Add white background */
+            cursor: pointer;
+        }
+
+        .clear-box:hover {
+            background-color: #f9f9f9; /* Change background color on hover */
+        }
+
+        .more-info {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .top-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px; /* Adjust the size of the logo */
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-buttons button {
+            background-color: #ddd;
+            color: #333;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-boxes {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ccc;
+            z-index: 1;
+            padding: 10px;
+            min-width: 150px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 8px;
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .google-map {
+            height: 90%; /* Adjust the height as needed */
+            border: 1px solid #ccc;
+            margin-top: 15px;
+        }
+
+        .right-box {
+            width: 30%;
+            background-color: #ddd;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Add scrollbar for overflow */
+            max-height: 100%; /* Set maximum height */
+        }
+    </style>
 </head>
+<body>
 
 <!-- Top Bar -->
 <div class="top-bar">
     <div class="top-buttons">
-        <h1>TradeMap</h1>
-        <h2>Make A Post</h2>
+        <h1><a href={% url 'home' %}>TradeMap<a/></h1>
+        <h2><a href = {% url 'input' %}>Make A Post<a/></h2>
     </div>
 </div>
 

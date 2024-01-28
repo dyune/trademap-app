@@ -124,11 +124,10 @@
 <body>
 
     <!-- Top Bar -->
-
 <div class="top-bar">
     <div class="top-buttons">
-        <h1><a href=>TradeMap<a/></h1>
-        <h2>Make A Post</h2>
+        <h1><a href={% url 'home' %}>TradeMap<a/></h1>
+        <h2><a href = {% url 'input' %}>Make A Post<a/></h2>
     </div>
 </div>
 
@@ -138,13 +137,15 @@
         <div class="left-boxes">
             <!-- Styled Dropdown -->
             <div class="dropdown">
-                <span>Jobs</span>
+                <span>Job Filters</span>
                 <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">Item 1</a>
-                    <a href="#" class="dropdown-item">Item 2</a>
-                    <a href="#" class="dropdown-item">Item 3</a>
-                    <a href="#" class="dropdown-item">Item 4</a>
-                    <a href="#" class="dropdown-item">Item 5</a>
+                    <a href="{% url 'filter' 'Plumber' %}" class="dropdown-item">Plumber</a>
+                    <a href="{% url 'filter' 'Carpenter' %}" class="dropdown-item">Carpenter</a>
+                    <a href="{% url 'filter' 'Electrician' %}" class="dropdown-item">Electrician</a>
+                    <a href="{% url 'filter' 'Landscaping' %}" class="dropdown-item">Landscaping</a>
+                    <a href="{% url 'filter' 'Painting or Decorating' %}" class="dropdown-item">Painting or Decorating</a>
+                    <a href="{% url 'filter' 'Other' %}" class="dropdown-item">Other</a>
+                    <a href="{% url 'home' %}" class="dropdown-item">Reset</a>
                 </div>
             </div>
 
