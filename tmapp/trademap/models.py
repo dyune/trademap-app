@@ -23,4 +23,7 @@ class JobPostings(Account):
     description = models.CharField(max_length=40)
     cost_offer = models.IntegerField()
     profession_type = models.CharField(max_length=40, choices= jobs)
+    contact = models.CharField(max_length = 15, default = '')
+    location = models.CharField(max_length = 100, default = '')
+
     

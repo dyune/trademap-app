@@ -13,7 +13,7 @@ class AccountForm(forms.ModelForm):
 class JobForm(forms.ModelForm):
     class Meta:
         model = JobPostings
-        fields = ['user', 'title', 'description', 'cost_offer', 'profession_type']
+        fields = ['user', 'title', 'description', 'cost_offer', 'profession_type', 'contact', 'location']
 
 
 
