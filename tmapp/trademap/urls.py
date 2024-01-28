@@ -8,4 +8,4 @@ urlpatterns = [
     path("input", views.input_form, name = "input"),
     path("output_test/", views.output_values, name = "output_values"),
     path("<str:slug>/", views.post_details, name = "load"),
-]
+]   

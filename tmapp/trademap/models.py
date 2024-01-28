@@ -8,3 +8,19 @@ class Account(models.Model):
     last_name = models.CharField(max_length=40)
     password = models.CharField(max_length=40)
     profession = models.CharField(max_length=40)
+
+class JobPostings(Account):
+    jobs = [
+        ('Plumber', 'Plumber'),
+        ('Carpenter', 'Carpenter'),
+        ('Electrician', 'Electrician'),
+        ('Landscaper', 'Landscaper'),
+        ('Painter or Decorator', 'Painter or Decorator'),
+        ('Other', 'Other'),
+        ]
+    user = models.CharField(max_length=40)
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=40)
+    cost_offer = models.IntegerField()
+    profession_type = models.CharField(max_length=40, choices= jobs)
+    

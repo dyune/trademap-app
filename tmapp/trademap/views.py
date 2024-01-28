@@ -2,23 +2,20 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from trademap.forms import AccountForm
-from .models import Account
-from .forms import AccountForm
+from .models import Account, JobPostings
+from .forms import AccountForm, JobForm
 # Create your views here.
 
-# home page accessed
-
+values = JobPostings.objects.all()
 
 def index(request):
-    return render(request, 'index.html')
-
-# home page -> make a post
+    return render(request, 'index.html',{
+        'postings':values
+    })
 
 
 def make_post(request):
     return HttpResponse('make a post')
-
-# home page -> slug
 
 
 def post_details(request):
@@ -27,15 +24,17 @@ def post_details(request):
 
 def input_form(request):
     if request.method == 'POST':
-        form = AccountForm(request.POST)
+        form = JobForm(request.POST)
         if form.is_valid():
+
             form.save()
             return redirect('output_values')  # Redirect to output view
     else:
-        form = AccountForm()
+        form = JobForm()
     return render(request, 'input_form.html', {'form': form})
 
 
-def output_values(request):
-    values = Account.objects.all()  # Fetch all objects from the database
+def output_values(request):  # Test function to output all objects from the database
     return render(request, 'output.html', {'values': values})
+
+
